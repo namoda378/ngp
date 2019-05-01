@@ -1,0 +1,8 @@
+
+
+ 
+- https://gridsome.org/docs/querying-data
+- The results of page-query will be stored in a $page property of component
+- The page-query in templates have variables like $id, $title, $slug, $path, $date
+- Components can have a <static-query>, results will be stored in $static property
+- A 'static-query' is named static as it can not accept any variables.
