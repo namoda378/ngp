@@ -14,6 +14,14 @@ module.exports = {
       plugins: [
         // ...global plugins
       ]
+    },
+    yaml: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      anchorClassName: 'icon icon-link',
+      plugins: [
+        // ...global plugins
+      ]
     }
   },
   plugins: [
@@ -26,15 +34,29 @@ module.exports = {
     },
     {
       use: '@gridsome/source-filesystem',
-      options: {
-        path: 'markdowns/**/*.md',
-        typeName: 'Markdown',
-        remark: {
-          plugins: [
-            // ...local plugins
-          ]
+      options: 
+        {
+          path: 'markdowns/**/*.md',
+          typeName: 'Markdown',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
         }
-      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: 
+        {
+          path: 'yamls/**/*.yaml',
+          typeName: 'Yaml',
+          yaml: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
     }
   ],
 }
