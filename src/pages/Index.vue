@@ -1,11 +1,18 @@
-<template>
-  <Layout>
+  <template lang="pug">
     
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
+    div
+      
+      faw(icon="home")
+      <g-image alt="Example image" src="~/favicon.png" width="135" />
     
-  </Layout>
 </template>
+
+<style lang="scss" scoped>
+
+.home-links a {
+  margin-right: 1rem;
+}
+</style>
 
 <script>
 export default {
@@ -18,9 +25,3 @@ export default {
   
 }
 </script>
-
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
-</style>
