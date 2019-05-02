@@ -2,7 +2,8 @@
 .cache
 .DS_Store
 src/.temp
-node_modules
+node_modules/*
+!node_modules/@gridsome/transformer-yaml/index.js
 dist
 .env
 .env.*
