@@ -1,13 +1,19 @@
-a: 
-  - 1
-  - 2
-  - 3
-  - 4:
-    - a
-    - b
-    - c
+Hello World:
+  - Item 1
+	
+	- Item 2
+  - 0.5  # sequences can contain disparate types.
+	- Item 4
+	
 
-  -
-    - 11
-    - 12
-    - 13
+	- AKEY :
+		- abc 
+		- def
+		- zyx
+
+		- AAKEY :
+			- abcde 
+			- gawegwae gew
+			- gweag waegw eaweg 
+			- somekey :
+				- aeeewg 

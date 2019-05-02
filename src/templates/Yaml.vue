@@ -1,17 +1,22 @@
 <template lang="pug">
 
     div
-        h1 {{ this.$page.markdown.title }}
-        h1 {{ this.$page.markdown.propA }}
+        
+        Layout
+
+            h1 {{ key }}
+
+            Rcomp(v-for="(content,idx) in contents" :key="idx" :data="content")
 
 
 </template>
 
 <page-query>
-    query Yaml($path:String!) {
+    query Yaml ($path:String!) {
         yaml : yaml(path:$path){
             path
-            data
+            title
+            json
         }
     }
 </page-query>
@@ -19,13 +24,19 @@
 <script>
 export default {
     data(){
-        return {
-            contentObject : JSON.parse(this.$page.data),
+        return{
+            data:null,
+            key:null,
         }
     },
     metaInfo(){
+        const json = this.$page.yaml.json;
+        this.data = JSON.parse(json);
+        this.key = Object.keys(this.data)[0];
+        this.contents = this.data[this.key];
+
         return {
-            title: this.$page.path,
+            title: this.key,
         }
     }
 }

@@ -1,45 +1,58 @@
-<template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metaData.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about">About</g-link>
-      </nav>
-    </header>
-    <slot/>
-  </div>
+<template lang="pug">
+
+  div  
+    header.header
+    
+        g-link(to="/") Namo
+
+    .grid
+
+      nav.nav
+        g-link.navlink(to="/") Home
+        g-link.navlink(to="/about") About
+
+      div
+        slot
+
 </template>
 
 <static-query>
+query {
+  metaData {
+    siteName
+  }
+}
 </static-query>
+<style lang="scss">
 
-<style>
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: Roboto,"Helvetica Neue",Arial,sans-serif;
   margin:0;
-  padding:0;
-  line-height: 1.5;
+  padding:0px 15x;
+  text-decoration: none;
 }
 
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+header{
+  height: 100px;
+  position: fixed;
+  top:0; left: 0;right: 0;
+  background : #88cd66;
+}
+.nav {
+  background:#abcdba
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+.nav .navlink{
+  display: block;
+  background:#aaffaa;
+  border-radius: 15px;
+  height:30px;
 }
 
-.nav__link {
-  margin-left: 20px;
+.grid{
+  display: grid;
+  padding-top:100px;
+  grid-template-columns: 10% auto;
 }
+
 </style>
