@@ -1,18 +1,22 @@
 <template lang="pug">
 
   div  
-    header.header
     
-        g-link(to="/") Namo
-
-    .grid
-
+    .floater
+      header.header
+        g-link.navlink(to="/") Namo
+      
       nav.nav
         g-link.navlink(to="/") Home
+        g-link.navlink(to="/art" @mouseover="") Art
+        g-link.navlink(to="/learn-and-tuts") Learn &amp Tuts
+        g-link.navlink(to="/projects") Projects
         g-link.navlink(to="/about") About
 
-      div
-        slot
+    .non-floater
+      .content
+
+          slot
 
 </template>
 
@@ -28,31 +32,56 @@ query {
 body {
   font-family: Roboto,"Helvetica Neue",Arial,sans-serif;
   margin:0;
-  padding:0px 15x;
-  text-decoration: none;
-}
+  overflow: auto;
 
-header{
-  height: 100px;
-  position: fixed;
-  top:0; left: 0;right: 0;
-  background : #88cd66;
-}
-.nav {
-  background:#abcdba
-}
+  .floater{
+    background:none;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width:100vw;
+    height:100vh;
 
-.nav .navlink{
-  display: block;
-  background:#aaffaa;
-  border-radius: 15px;
-  height:30px;
-}
+    header{
+    height: 70px;
+    top:0; left: 0;right: 0;
+    background : #458823;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding-left:30px;
 
-.grid{
-  display: grid;
-  padding-top:100px;
-  grid-template-columns: 10% auto;
-}
+      .navlink{
+        color:#fff;
+        display: block;
+        font-size : 40px;
+        text-decoration: none;
+      }
+    }
 
+    .nav{ 
+      width:130px;
+      flex-grow: 1;
+      background:#abcdba;
+      overflow: auto;
+      .navlink{
+        display: block;
+        color:#336;
+        text-decoration: none;
+        padding:15px;
+      }
+    }
+  }  
+  
+  .non-floater{
+    padding: 70px 0 0 130px;
+    .content{
+      padding : 20px;
+    }
+  }
+
+}
 </style>
