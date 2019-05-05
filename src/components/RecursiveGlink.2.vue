@@ -3,53 +3,83 @@
     .itcon
         .tcon(ref="tcon"
             @mouseover="setES((es)=>es.hover.hi=true);" 
-            @mouseleave="setES((es)=>es.hover.hi=false);")
+            @mouseleave="setES((es)=>es.hover.hi=false);"
+            :style="`padding:${styleData.tconPad}px;`")
             
-            g-link.hi(:to="nametree.path") {{ nametree.name }}
+            g-link.hi(:to="nametree.path"
+                :style="`color:${styleData.hiColor}; height:${styleData.hiLH}px;  line-height:${styleData.hiLH}px; font-size:${styleData.hiFS}px;`").
+            
+                {{ nametree.name }}
 
-        .rcon(v-if="nametree.children" :style="`max-height:${styleData.rconHeight}`")
+        .rcon(ref="rcon" v-if="nametree.children" :style="`max-height:${styleData.rconHeight}px;`")
             
-            .sidebar( 
+            .sidebar(ref="sidebar" 
                 @mouseover="setES((es)=>es.hover.sidebar=true);"
                 @mouseleave="setES((es)=>es.hover.sidebar=false);"
-                :style="`width:${styleData.sidebarWidth}px; background:${styleData.sidebarBG}; border-radius: 0 20px ${styleData.sidebarBRradius}px 0;`")
+                :style="` width:${styleData.sidebarWidth}px; background:${styleData.sidebarBG}; border-radius: 0 ${styleData.sidebarBorderRadius}px ${styleData.sidebarBRradius}px 0;`")
 
             .height-keeper
-                Rlink(v-for="(elm,idx) in nametree.children" :nametree="elm" :key="idx")
+                Rlink(v-for="(elm,idx) in nametree.children" :nametree="elm" :key="idx" :pageState="pageState")
 
 
 </template>
 <script>
 import Vue from 'vue';
+import { setTimeout } from 'timers';
 
 export default {
     props:{
-        nametree:Object,
+        nametree:{type: Object, required: true},
+        pageState:Object,
+    },
+    mounted(){
+        this.onEvChange();
+
+        setTimeout(()=>{
+            this.$refs.sidebar.style.transition="all 0.5s";
+            this.$refs.rcon.style.transition="all 0.5s";
+            },500);
+
     },
     data(){
         
         let sidebarBG = `hsla(100,80%,${20+this.nametree.depth*15}%,1)`
+        
 
+        const {fullPath} = this.$route;
+        // console.log(this.nametree.accpath);
+        let route_active = fullPath.search(this.nametree.accpath) >= 0 ? true : false;
+        let route_exact = this.nametree.accpath.search(fullPath) >= 0 ? true : false;
+    
+        
         return{
             evCount:0,
             evState:{
+                route:{
+                    active:route_active,
+                    exact:route_exact,
+                },
                 hover:{
                     sidebar:false,
                     hi:false,
                 },
                 activeChildren:{},
             },
+            lgState:{
+
+            },
             styleData:{
                 sidebarWidth:0,
-                sidebarBRradius:20,
+                sidebarBorderRadius:8,
+                sidebarBRradius:0,
                 sidebarBG,
                 rconHeight : 0,
+                tconPad:0,
+                hiColor:"#bfb",
+                hiLH:0,
+                hiFS:0,
             },
         }
-    },
-    mounted(){
-        console.log(this.nametree.path);
-        this.nametree.dm.height = this.$refs.tcon.clientHeight;
     },
     methods:{
         setES(f){
@@ -63,27 +93,35 @@ export default {
                 this.setES((es)=> delete es.activeChildren[id]);
             }
         },
-    },
-    watch:{
-        evCount(){
+        onEvChange(){
+            const {evState} = this;
             const selfActive = this.evState.hover.hi || this.evState.hover.sidebar;
             const childActive = Object.keys(this.evState.activeChildren).length > 0;
-            const conclusiveActive = selfActive || childActive;
+            const conclusiveActive = selfActive || childActive || evState.route.active ;
             
             const { children } = this.nametree;
             const lastChild = children[children.length-1];
 
-            let tconHeight = this.$refs.tcon.clientHeight;
-            let rconHeight = conclusiveActive ? children.reduce((prev,elm)=>prev += elm.dm.height,0) : 0;
+            // let tconHeight = this.$refs.tcon.offsetHeight;
             
-            this.styleData.sidebarWidth = conclusiveActive ? 30 : 0;
-            this.styleData.sidebarBRradius = lastChild && lastChild.children.length && lastChild.dm.conclusiveActive ? 0 : 20;    
-            this.styleData.rconHeight = rconHeight + "px";
+            const {styleData} = this;
+            styleData.sidebarWidth = conclusiveActive ? 30 : 0;
+            styleData.sidebarBRradius = lastChild && lastChild.children.length && lastChild.dm.conclusiveActive ? 0 : styleData.sidebarBorderRadius;    
+            styleData.rconHeight =  conclusiveActive ? children.reduce((prev,elm)=>prev += elm.dm.height,0) : 0;
+            styleData.hiColor = selfActive || evState.route.exact ? "#ff9" : "#bfb";
+            styleData.hiLH = 40 - this.nametree.depth*2;
+            styleData.hiFS = 30 - this.nametree.depth*2;
+            styleData.tconPad = styleData.hiLH/5;
             
+            let tconHeight = styleData.tconPad * 2 + styleData.hiLH;
+            let rconHeight = styleData.rconHeight
 
             this.nametree.dm.height = tconHeight + rconHeight;
             this.nametree.dm.conclusiveActive = conclusiveActive;
-            
+
+            // console.log(this.nametree.accpath);
+            // console.log(this.nametree.dm.height);
+
             this.$parent.reportActive && this.$parent.reportActive(conclusiveActive,this.nametree.id);
             
             // console.log(` (${this.nametree.path}).evCount : conslusive::${conclusiveActive} , ac::${JSON.stringify(this.evState.activeChildren)} `)
@@ -92,8 +130,13 @@ export default {
             //     console.log(this.styleData.rconHeight);
             //     console.log(JSON.stringify(this.evState));
             // }
+        },
+    },
+    watch:{
+        evCount(){
+            this.onEvChange();
         }
-    }
+    },
 }
 </script>
 <style lang="scss">
@@ -105,23 +148,21 @@ export default {
             text-decoration: none;
             color:#fff;
             font-size:30px;
+            line-height: 35px;
         }
     }
 
     .rcon{
         display: flex;
         flex-direction: row;
-        max-height:0px;
         overflow-y: hidden;
-        transition: all 0.5s;
         .sidebar{
-            transition: all 0.5s;
             align-self: stretch;
         }
     }
 
     .height-keeper{
-        height: fit-content;
+        height: auto;
     }
 
 

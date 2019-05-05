@@ -11,3 +11,10 @@ export const windowResizeListener = {
       window.removeEventListener('resize', this.onWindowResize);
     }
   };
+
+
+export const routeSetter = {
+    created() {
+      console.log(this);      
+    },
+};

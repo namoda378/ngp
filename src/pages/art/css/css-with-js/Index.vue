@@ -53,6 +53,7 @@ export default {
   /* required to see the handle */
   background: #224;
   padding-bottom: 22px;
+  
 
   /* default height */
   height: 900px;

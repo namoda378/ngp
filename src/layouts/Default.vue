@@ -7,7 +7,7 @@
         g-link.navlink(to="/") Namo
       
       nav.nav
-        Rlink.d1(v-for="(v,k) in nametree" :nametree="v" :key="k")
+        Rlink.d1(v-for="(v,k) in nametree" :nametree="v" :key="k" :pageState="pageState")
 
     .non-floater
       .content
@@ -26,10 +26,13 @@ query {
 
 <script>
 import pathsToNameTree from "~/util/pathsToNameTree"
-import { windowResizeListener } from "~/mixins"
+import { windowResizeListener,routeSetter } from "~/mixins"
 
 export default {
   mixins: [windowResizeListener],
+  props:{
+    pageState:Object,
+  },
   data(){
     return {
       nametree: null,
@@ -104,7 +107,7 @@ body {
       font-family: "Roboto Mono";
       background:hsla(100,87%,15%,1);
       overflow-y: auto;
-      overflow-x: visible;
+      overflow-x: hidden;
       
       
       width:$floater-padding-left;
