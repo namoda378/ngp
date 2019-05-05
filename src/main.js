@@ -3,8 +3,8 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import RecursiveContent from '~/components/RecursiveContent.vue'
-// import RecursiveGlink from '~/components/RecursiveGlink.vue'
 import RecursiveGlink from '~/components/RecursiveGlink.2.vue'
+import ShowCase from '~/components/ShowCase.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -19,6 +19,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout);
   Vue.component('Rcomp', RecursiveContent);
   Vue.component('Rlink', RecursiveGlink);
+  Vue.component('ShowCase', ShowCase);
 
 
   ["Roboto","ZCOOL+KuaiLe","Roboto+Mono"].forEach(font=>{

@@ -114,7 +114,11 @@ export default {
             styleData.hiLH = 40 - this.nametree.depth*2;
             styleData.hiFS = 30 - this.nametree.depth*2;
             styleData.tconPad = styleData.hiLH/5;
-            styleData.rconAdditionalStyle = evState.route.exact || this.evState.hover.hi ? 'background:hsla(100,75%,55%,0.1);border-radius:10px;':"";
+            styleData.rconAdditionalStyle = 
+                evState.route.exact
+                || this.evState.hover.hi 
+                // || evState.route.active &&             
+                ? 'background:hsla(100,75%,55%,0.1);border-radius:10px;':"";
             
             let tconHeight = styleData.tconPad * 2 + styleData.hiLH;
             let rconHeight = styleData.rconHeight

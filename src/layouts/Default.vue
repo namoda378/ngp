@@ -82,6 +82,7 @@ body {
     width:100vw;
     height:100vh;
     pointer-events: none;
+    z-index: 1000;
 
     header{
     font-family:'ZCOOL KuaiLe';
