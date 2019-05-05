@@ -18,7 +18,7 @@
                 @mouseleave="setES((es)=>es.hover.sidebar=false);"
                 :style="` width:${styleData.sidebarWidth}px; background:${styleData.sidebarBG}; border-radius: 0 ${styleData.sidebarBorderRadius}px ${styleData.sidebarBRradius}px 0;`")
 
-            .height-keeper
+            .height-keeper(:style="`${styleData.rconAdditionalStyle}`")
                 Rlink(v-for="(elm,idx) in nametree.children" :nametree="elm" :key="idx" :pageState="pageState")
 
 
@@ -32,24 +32,26 @@ export default {
         nametree:{type: Object, required: true},
         pageState:Object,
     },
-    mounted(){
+    created(){
         this.onEvChange();
-
-        setTimeout(()=>{
-            this.$refs.sidebar.style.transition="all 0.5s";
-            this.$refs.rcon.style.transition="all 0.5s";
-            },500);
+    },
+    mounted(){
+            
+        setImmediate(()=>{
+        this.$refs.sidebar.style.transition="all 0.5s";
+        this.$refs.rcon.style.transition="all 0.5s";
+        });
 
     },
     data(){
         
         let sidebarBG = `hsla(100,80%,${20+this.nametree.depth*15}%,1)`
-        
 
         const {fullPath} = this.$route;
+        const {accpath} = this.nametree;
         // console.log(this.nametree.accpath);
-        let route_active = fullPath.search(this.nametree.accpath) >= 0 ? true : false;
-        let route_exact = this.nametree.accpath.search(fullPath) >= 0 ? true : false;
+        let route_active = fullPath.search(accpath) >= 0 ? true : false;
+        let route_exact = accpath == fullPath ? true : false;
     
         
         return{
@@ -112,6 +114,7 @@ export default {
             styleData.hiLH = 40 - this.nametree.depth*2;
             styleData.hiFS = 30 - this.nametree.depth*2;
             styleData.tconPad = styleData.hiLH/5;
+            styleData.rconAdditionalStyle = evState.route.exact || this.evState.hover.hi ? 'background:hsla(100,75%,55%,0.1);border-radius:10px;':"";
             
             let tconHeight = styleData.tconPad * 2 + styleData.hiLH;
             let rconHeight = styleData.rconHeight
