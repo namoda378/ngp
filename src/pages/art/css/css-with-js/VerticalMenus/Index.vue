@@ -43,15 +43,15 @@
             h3 Namo Style menu with Vue.js
 
         ShowCase(ofhID="sc2" :resizeW="true")
-            NamoRmenu(:nametreeroot="makeNameTreeRoot()")
+            NamoRmenu(:nametreeroot="makeNameTreeRoot()" :asComp="true")
 
 
 </template>
 
 <script>
-import NamoRmenu from "./VcompNamoRmenu"
+import NamoRmenu from "~/components/works/NamoRmenu/VcompNamoRmenu"
 import pathsToNameTree from "~/util/pathsToNameTree"
-import {generatePaths} from "~/util/mock"
+import generatePaths from "~/util/generatePaths"
 
 
 export default {
@@ -64,7 +64,6 @@ export default {
   methods:{
       makeNameTreeRoot(){
           const nametreeroot = pathsToNameTree(generatePaths());
-          console.log(nametreeroot);
           return nametreeroot;
       }
   }
@@ -72,5 +71,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "./sc1";
+    @import "~/components/works/NamoRmenu/sc1.scss";
 </style>

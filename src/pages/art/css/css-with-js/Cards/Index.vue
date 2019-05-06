@@ -19,7 +19,7 @@
 
 
 <script>
-import Card1 from "./VcompCard1";
+import Card1 from "~/components/works/VcompCard1";
 
 export default {
     components:{

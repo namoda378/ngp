@@ -5,8 +5,14 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
-  api.loadSource(store => {
-    // Use the Data store API here: https://gridsome.org/docs/data-store-api
-  })
+const nodeExternals = require('webpack-node-externals')
+
+module.exports = {
+  chainWebpack(config, { isServer }) {
+    if (isServer) {
+      config.externals(nodeExternals({
+        whitelist: [/\.js$/]
+      }))
+    }
+  }
 }

@@ -1,6 +1,6 @@
 
 
-function generatePaths(tokens = ["apple","peach","tomato"]){
+export default function(tokens = ["apple","peach","tomato"]){
     const paths = [];
     function r(depth,accpath){
       paths.push(accpath);
@@ -15,4 +15,3 @@ function generatePaths(tokens = ["apple","peach","tomato"]){
 }
 
 
-export {generatePaths};

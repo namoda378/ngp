@@ -20,7 +20,9 @@ function newRmenuState(){
 
 export default {
     props:{
-        nametreeroot:Object,
+        nametreeroot:{
+            type:Object
+        },
         RmenuState:{
             type:Object,
             default:newRmenuState,
