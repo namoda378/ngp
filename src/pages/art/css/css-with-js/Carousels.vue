@@ -1,18 +1,16 @@
 <template lang="pug">
   Layout
     
-    .content
+    Ctext
+        
+        h1 Carousel Animations
+        h3 using pure CSS
 
-        .text
-            h1 Carousel Animations
-
-            h3 using pure CSS
-
-        .flex
-            .pos-abs
-                .box-a
-                    
-                .box-b
+    .flex
+        .pos-abs
+            .box-a
+                
+            .box-b
                 
 
 </template>
@@ -31,21 +29,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-    .text{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 30px 0;
-        h1{
-            font-size: 70px;
-        }
-        h3{
-            font-size: 35px;
-        }
-    }
-
 
     .flex{
         display: flex;

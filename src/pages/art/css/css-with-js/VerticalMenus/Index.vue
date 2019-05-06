@@ -1,13 +1,14 @@
 <template lang="pug">
     Layout
 
-        .text
+        Ctext
+
             h1 Vertical Menu Styles
 
             h3 using pure CSS
 
         
-        ShowCase(ofhID="sc1")
+        ShowCase(ofhID="sc1" :resizeW="true")
 
             .flex-col
                 .list
@@ -38,44 +39,38 @@
                 
                 .grow
 
-        .text
-            h3 using pure CSS
+        Ctext(style="margin-top:50px;")
+            h3 Namo Style menu with Vue.js
+
+        ShowCase(ofhID="sc2" :resizeW="true")
+            NamoRmenu(:nametreeroot="makeNameTreeRoot()")
+
 
 </template>
 
 <script>
+import NamoRmenu from "./VcompNamoRmenu"
+import pathsToNameTree from "~/util/pathsToNameTree"
+import {generatePaths} from "~/util/mock"
+
+
 export default {
   metaInfo: {
     title: 'Namo'
   },
-  data(){
-    return{
-      a:1,
-    }
+  components:{
+    NamoRmenu
   },
   methods:{
-      
+      makeNameTreeRoot(){
+          const nametreeroot = pathsToNameTree(generatePaths());
+          console.log(nametreeroot);
+          return nametreeroot;
+      }
   }
 }
 </script>
 
 <style lang="scss" scoped>
     @import "./sc1";
-    
-    .text{
-        display: flex;
-        margin-bottom: 30px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 30px 0;
-        h1{
-            font-size: 70px;
-        }
-        h3{
-            font-size: 35px;
-        }
-    }
-    
-
 </style>

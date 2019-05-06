@@ -5,7 +5,12 @@ export default function(paths){
     for(let path of paths){  
         let curnode = root;
         let tokens = path.split("/");
+        
         tokens = tokens.filter((elm)=>elm.length>0);
+        
+        if(!tokens.every((tok)=>tok.match(/^vcomp/)==null))continue;
+        // tokens = tokens.filter((elm)=>elm.);
+
         let accpath = "";
 
         for(let idx in tokens){

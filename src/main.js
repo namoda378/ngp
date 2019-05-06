@@ -5,13 +5,15 @@ import DefaultLayout from '~/layouts/Default.vue'
 import RecursiveContent from '~/components/RecursiveContent.vue'
 import RecursiveGlink from '~/components/RecursiveGlink.2.vue'
 import ShowCase from '~/components/ShowCase.vue'
+import CenteredText from '~/components/CenteredText.vue'
+import DocText from '~/components/DocText.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faHome , faHeart } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithub, faTwitter,faHome)
+library.add(faGithub, faTwitter,faHome , faHeart);
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
@@ -20,6 +22,8 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Rcomp', RecursiveContent);
   Vue.component('Rlink', RecursiveGlink);
   Vue.component('ShowCase', ShowCase);
+  Vue.component('Ctext', CenteredText);
+  Vue.component('Dtext', DocText);
 
 
   ["Roboto","ZCOOL+KuaiLe","Roboto+Mono"].forEach(font=>{

@@ -2,7 +2,9 @@
 
   .flex-con  
     .ofv(ref="ofv")
-        .resize-btn(draggable 
+        .resize-btn(
+            draggable 
+            v-if="resizeW"
             @drag="resize")
 
         .ofh(:id="ofhID")
@@ -15,6 +17,7 @@
 export default {
     props:{
         ofhID:String,
+        resizeW:Boolean,
     },
     methods:{
         log(s){
@@ -49,6 +52,7 @@ export default {
                     font-size:25px;
                     content: "< >"
                 }
+                cursor: pointer;
                 position: absolute;
                 bottom:50%;
                 right:-20px;
