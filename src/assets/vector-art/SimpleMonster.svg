@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg6123"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="Wizcraft-Enemies.svg">
+  <defs
+     id="defs6117" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="669.55212"
+     inkscape:cy="553.86567"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="350"
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata6120">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#4b4b4b;fill-opacity:1;stroke:#000000;stroke-width:2.51250577;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.93207553"
+       d="m 46.733362,84.027206 c -10e-7,17.566134 2.263177,35.129304 -4.787169,35.129304 -7.050346,0 -20.744396,-17.08846 -20.744397,-34.65458 -1e-6,-17.56612 8.906879,-29.432671 15.957227,-29.432671 7.050349,0 9.57434,11.391836 9.574339,28.957947 z"
+       id="path7222"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="D:\UnityProjects-valC\WizCraft\Assets\Enemy\BlackSheep.png"
+       inkscape:export-xdpi="89.633881"
+       inkscape:export-ydpi="89.633881" />
+    <g
+       id="g7254-3"
+       transform="translate(10.251277,11.721846)"
+       inkscape:export-filename="D:\UnityProjects-valC\WizCraft\Assets\Enemy\BlackSheep.png"
+       inkscape:export-xdpi="89.633881"
+       inkscape:export-ydpi="89.633881">
+      <path
+         sodipodi:nodetypes="cscc"
+         inkscape:connector-curvature="0"
+         id="path7235-6-2"
+         d="m 50.737591,40.394825 c -3.913012,9.372108 3.070166,25.108706 18.138198,30.38379 8.331627,2.916773 19.258938,-4.504976 21.905639,-10.489198 C 83.609003,56.247363 61.370657,45.478598 50.737591,40.394825 Z"
+         style="fill:#840e0e;fill-opacity:1;stroke:none;stroke-width:0.3220433px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscc"
+         inkscape:connector-curvature="0"
+         id="path7235-5"
+         d="M 52.899239,47.314055 C 49.398224,54.87012 61.632828,67.610663 69.432943,69.710094 76.54292,71.623772 86.693607,65.397042 89.061636,60.554 82.644391,58.394577 62.412743,49.829958 52.899239,47.314055 Z"
+         style="fill:#e71a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <g
+       id="g7326-4"
+       transform="matrix(-1,0.16407501,0,1,260.97933,-72.327185)"
+       inkscape:export-filename="D:\UnityProjects-valC\WizCraft\Assets\Enemy\BlackSheep.png"
+       inkscape:export-xdpi="89.633881"
+       inkscape:export-ydpi="89.633881">
+      <path
+         sodipodi:nodetypes="cscc"
+         inkscape:connector-curvature="0"
+         id="path7235-66-4-1"
+         d="m 153.92517,122.69584 c 3.50101,8.85635 -11.25757,9.55249 -21.02383,7.31589 -6.66997,-1.5275 -18.00902,-7.13383 -20.37705,-12.8176 12.40408,-19.442044 36.93877,-16.80897 41.40088,5.50171 z"
+         style="fill:#840e0e;fill-opacity:1;stroke:none;stroke-width:0.28308916px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscc"
+         inkscape:connector-curvature="0"
+         id="path7235-66-2"
+         d="m 153.40804,119.28337 c 3.50102,8.85635 -11.25756,9.55249 -21.02383,7.31589 -6.66997,-1.5275 -17.44775,-3.81301 -19.81578,-9.49678 12.40408,-19.442036 36.3775,-20.129785 40.83961,2.18089 z"
+         style="fill:#e71a1a;fill-opacity:1;stroke:none;stroke-width:0.28308916px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:#4b4b4b;fill-opacity:1;stroke:#000000;stroke-width:2.64583325;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.93207553"
+       d="m 48.448451,155.86315 c 1.870884,16.21321 4.783039,37.30418 -2.14326,38.40998 -42.1866849,6.73519 -24.379271,-19.04837 -24.379272,-38.62916 -1e-6,-19.5808 8.860982,-32.80834 15.874999,-32.80834 7.014017,0 8.402949,13.57581 10.647533,33.02752 z"
+       id="path7222-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="D:\UnityProjects-valC\WizCraft\Assets\Enemy\BlackSheep.png"
+       inkscape:export-xdpi="89.633881"
+       inkscape:export-ydpi="89.633881" />
+    <path
+       style="fill:#4b4b4b;fill-opacity:1;stroke:#000000;stroke-width:2.64583325;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.93207553"
+       d="m 159.88547,139.20406 c 0,29.9646 -29.31953,54.25572 -53.08456,54.25572 -23.765041,0 -53.084574,-24.29111 -53.084571,-54.25572 1e-6,-29.9646 0.215366,-54.255712 53.084571,-54.255707 52.8692,5e-6 53.08456,24.291107 53.08456,54.255707 z"
+       id="path7219"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssszs"
+       inkscape:export-filename="D:\UnityProjects-valC\WizCraft\Assets\Enemy\BlackSheep.png"
+       inkscape:export-xdpi="89.633881"
+       inkscape:export-ydpi="89.633881" />
+  </g>
+</svg>

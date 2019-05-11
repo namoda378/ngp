@@ -3,7 +3,6 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import RecursiveContent from '~/components/RecursiveContent.vue'
-import RecursiveGlink from '~/components/RecursiveGlink.2.vue'
 import ShowCase from '~/components/ShowCase.vue'
 import CenteredText from '~/components/CenteredText.vue'
 import DocText from '~/components/DocText.vue'
@@ -20,7 +19,6 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('faw', FontAwesomeIcon);
   Vue.component('Layout', DefaultLayout);
   Vue.component('Rcomp', RecursiveContent);
-  Vue.component('Rlink', RecursiveGlink);
   Vue.component('ShowCase', ShowCase);
   Vue.component('Ctext', CenteredText);
   Vue.component('Dtext', DocText);

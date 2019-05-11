@@ -7,7 +7,7 @@
         g-link.navlink(to="/") Namo
       
       nav.nav
-        Rlink.d1(v-for="(v,k) in nametree" :nametree="v" :key="k" :pageState="pageState")
+        Rmenu(:nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
 
     .non-floater
       .content
@@ -27,6 +27,7 @@ query {
 <script>
 import pathsToNameTree from "~/util/pathsToNameTree"
 import { windowResizeListener,routeSetter } from "~/mixins"
+import Rmenu from "~/components/works/NamoRmenu/VcompNamoRmenu"
 
 export default {
   mixins: [windowResizeListener],
@@ -35,15 +36,24 @@ export default {
   },
   data(){
     return {
-      nametree: null,
+      nametreeroot: null,
+      rmenulistener:null,
     }
+  },
+  components:{
+    Rmenu,
   },
   beforeMount(){
     const {allPage} = this.$static;
     
-
     const root = pathsToNameTree(allPage.map((page)=>page.path));
-    this.nametree = root.children;
+    this.rmenulistener = {
+      goto:(path)=>{
+        this.$router.push(path);
+      }
+    };
+
+    this.nametreeroot = root;
   },
   methods:{
     log(s){

@@ -6,7 +6,7 @@
             @mouseleave="setES((es)=>es.hover.hi=false);"
             :style="`padding:${styleData.tconPad}px;`")
             
-            .hi(@click="RmenuState.goto(nametree.path)"
+            .hi(@click="RmenuListener.goto(nametree.path)"
                 :style="`color:${styleData.hiColor}; height:${styleData.hiLH}px;  line-height:${styleData.hiLH}px; font-size:${styleData.hiFS}px;`").
             
                 {{ nametree.name }}
@@ -19,7 +19,7 @@
                 :style="` width:${styleData.sidebarWidth}px; background:${styleData.sidebarBG}; border-radius: 0 ${styleData.sidebarBorderRadius}px ${styleData.sidebarBRradius}px 0;`")
 
             .height-keeper(:style="`${styleData.rconAdditionalStyle}`")
-                NamoRitem(v-for="(elm,idx) in nametree.children" :nametree="elm" :key="idx" :RmenuState="RmenuState")
+                NamoRitem(v-for="(elm,idx) in nametree.children" :nametree="elm" :key="idx" :RmenuListener="RmenuListener")
 
 
 </template>
@@ -31,7 +31,7 @@ export default {
     name:"NamoRitem",
     props:{
         nametree:{type: Object, required: true},
-        RmenuState:{type: Object, required: true},
+        RmenuListener:{type: Object, required: true},
     },
     components:{
         NamoRitem,

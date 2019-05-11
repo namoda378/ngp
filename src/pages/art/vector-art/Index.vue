@@ -1,28 +1,29 @@
-<template>
-  <Layout>
+<template lang="pug">
+  Layout
     
     <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
     
-    <h1>Hello, This is the Art Page</h1>
-   
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
+    Ctext
+      h1 Vector Arts
+    
+      .bl
 
-    <ul>
-      <li>
-        <g-link to="/bfolder/gogo2"></g-link>
-      </li>
-    </ul>
-    <p class="home-links">
-      <a href="https://gridsome.org/docs" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
+      h3 ChryslerTower
+      g-image(src="~/assets/vector-art/ChryslerTower.svg" style="width:300px;height:800px;")
+
+      .bl
     
-  </Layout>
+      h3 GlassDome
+      g-image(src="~/assets/vector-art/GlassDome.svg" style="width:500px;height:auto;")
+      
+      .bl 
+
+      h3 SimpleMonster
+      g-image(src="~/assets/vector-art/SimpleMonster.svg" style="width:500px;height:auto;")
+      
+      .bl 
+
+
 </template>
 
 <script>

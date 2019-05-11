@@ -1,21 +1,15 @@
 <template lang="pug">
     
     .vert
-        NamoRitem(v-for="(v,k) in nametreeroot.children" :nametree="v" :RmenuState="RmenuState" :key="k")
+        NamoRitem(v-for="(v,k) in nametreeroot.children" :nametree="v" :RmenuListener="RmenuListener" :key="k")
 
 </template>
 <script>
 import NamoRitem from "./VcompNamoRitem";
 
 
-function RmenuState(){
-
-}
-RmenuState.prototype.goto = function(path){
-
-}
-function newRmenuState(){
-    return new RmenuState();
+function newRmenuListener(){
+    return {goto(){}};
 }
 
 export default {
@@ -23,10 +17,10 @@ export default {
         nametreeroot:{
             type:Object
         },
-        RmenuState:{
+        RmenuListener:{
             type:Object,
-            default:newRmenuState,
-        }
+            default:newRmenuListener,
+        },
     },
     components:{
         NamoRitem
@@ -40,7 +34,7 @@ export default {
 
     .vert{
         height:100%;
-        width:200px;
+        width:100%;
         pointer-events: auto;
         font-family: "Roboto Mono";
         background:hsla(100,87%,15%,1);
