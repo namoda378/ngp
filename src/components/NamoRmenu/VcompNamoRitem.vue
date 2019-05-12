@@ -40,10 +40,10 @@ export default {
         this.onEvChange();
     },
     mounted(){
-        setImmediate(()=>{
+        setTimeout(()=>{
             this.$refs.sidebar.style.transition="all 0.5s";
             this.$refs.rcon.style.transition="all 0.5s";
-        });
+        },0);
     },
     data(){
         
@@ -155,9 +155,12 @@ export default {
         .hi{
             cursor: pointer;
             text-decoration: none;
+            text-overflow: ellipsis;
             color:#fff;
             font-size:30px;
             line-height: 35px;
+            white-space: nowrap;
+            overflow: hidden;
         }
     }
 

@@ -7,14 +7,7 @@
 module.exports = {
   siteName: 'Namo',
   transformers: {
-    remark: {
-      externalLinksTarget: '_blank',
-      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
-      anchorClassName: 'icon icon-link',
-      plugins: [
-        // ...global plugins
-      ]
-    }
+    yamljson:{},
   },
   plugins: [
     {
@@ -28,9 +21,9 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: 
         {
-          path: 'markdowns/**/*.md',
-          typeName: 'Markdown',
-          remark: {
+          path: 'yamls/**/*.yaml',
+          typeName: 'Yaml',
+          yamljson: {
             plugins: [
               // ...local plugins
             ]

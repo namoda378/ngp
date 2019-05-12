@@ -27,7 +27,7 @@ query {
 <script>
 import pathsToNameTree from "~/util/pathsToNameTree"
 import { windowResizeListener,routeSetter } from "~/mixins"
-import Rmenu from "~/components/works/NamoRmenu/VcompNamoRmenu"
+import Rmenu from "~/components/NamoRmenu/VcompNamoRmenu"
 
 export default {
   mixins: [windowResizeListener],

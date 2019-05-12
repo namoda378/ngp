@@ -7,7 +7,8 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "gridsome": "^0.5.0"
+    "gridsome": "^0.5.0",
+    "transformer-yamljson": "^0.1.3"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
@@ -18,6 +19,7 @@
     "@gridsome/transformer-remark": "^0.2.1",
     "@gridsome/transformer-yaml": "^0.1.0",
     "gridsome-plugin-pug": "^0.0.3",
+    "gridsome-transformer-yamljson": "^0.1.4",
     "node-sass": "^4.12.0",
     "pug": "^2.0.3",
     "sass-loader": "^7.1.0",

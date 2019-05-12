@@ -14,16 +14,28 @@
             
             Card1
 
+        Ctext
+
+            .bl2
+
+            h3 text clipped background
+
+        ShowCase(ofhID="sc2" :resizeW="false")
+            
+            BgClipText
+
 </template>
 
 
 
 <script>
 import Card1 from "~/components/works/VcompCard1";
+import BgClipText from "~/components/works/BgClipText/main";
 
 export default {
     components:{
-        Card1
+        Card1,
+        BgClipText,
     }    
 }
 </script>

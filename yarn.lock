@@ -3942,6 +3942,13 @@ gridsome-plugin-pug@^0.0.3:
     pug-loader "^2.4.0"
     pug-plain-loader "^1.0.0"
 
+gridsome-transformer-yamljson@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/gridsome-transformer-yamljson/-/gridsome-transformer-yamljson-0.1.4.tgz#6b6491e6c11152938fc69fe207672290b40e671d"
+  integrity sha512-qYcFP0Z74dxR/DII69nyo7W5+xDkj2WTcvVlEqIMYLlFmsBvLsjLnd2Ct6zfur7dxiamNxKZjjG7KOT+FXbrLA==
+  dependencies:
+    js-yaml "^3.12.1"
+
 gridsome@^0.5.0:
   version "0.5.8"
   resolved "https://registry.yarnpkg.com/gridsome/-/gridsome-0.5.8.tgz#aff05b732f0c628d6a7d3c3277821c64a05e5a75"
@@ -8404,6 +8411,13 @@ tough-cookie@~2.4.3:
   dependencies:
     psl "^1.1.24"
     punycode "^1.4.1"
+
+transformer-yamljson@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/transformer-yamljson/-/transformer-yamljson-0.1.1.tgz#1e0cd9845b537cc44c3cb5b87050ab9e6812daf2"
+  integrity sha512-Tg6stFlnMbtyvvjaHMeUgg8zHhNNINvreOfCEJZwb6EJsMUbRI4bM3ouyhYOCpnZhn3N5QRW+RX83GLJ5vDw0w==
+  dependencies:
+    js-yaml "^3.12.1"
 
 trim-lines@^1.0.0:
   version "1.1.1"
