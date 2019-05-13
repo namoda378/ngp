@@ -6,7 +6,7 @@
       header.header
         g-link.navlink(to="/") Namo
       
-      nav.nav
+      nav.nav(v-if="nametreeroot")
         Rmenu(:nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
 
     .non-floater
@@ -17,11 +17,11 @@
 </template>
 
 <static-query>
-query {
-    allPage{
-      path
-    }
-}
+  query {
+      allPage{
+        path
+      }
+  }
 </static-query>
 
 <script>
@@ -34,19 +34,20 @@ export default {
   props:{
     layoutParams:Object,
   },
-  data(){
+  beforeMount(){
     const {allPage} = this.$static;
     
-    const nametreeroot = pathsToNameTree(allPage.map((page)=>page.path));
-    const rmenulistener = {
+    this.nametreeroot = pathsToNameTree(allPage.map((page)=>page.path));
+    this.rmenulistener = {
       goto:(path)=>{
         this.$router.push(path);
       }
     };
-    
+  },
+  data(){
     return {
-      nametreeroot,
-      rmenulistener,
+      nametreeroot:null,
+      rmenulistener:null,
     }
   },
   components:{
@@ -60,11 +61,6 @@ export default {
       
     },
   },
-  metaData(){
-    return {
-
-    }
-  }
 }
 </script>
 
