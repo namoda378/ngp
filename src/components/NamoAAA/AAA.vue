@@ -1,26 +1,24 @@
 <template lang="pug">
     
-    .vert
-        NamoRitem(v-for="(v,k) in nametreeroot.children" :nametree="v" :RmenuListener="RmenuListener" :key="k")
+    .div
+        p(v-for="(v,k) in nametreeroot.children" :key="k") {{ v.name }}
 
 </template>
 <script>
-import NamoRitem from "./VcompNamoRitem";
 
 export default {
-    name:"NamoRmenu",
+    name:"sega",
+    created(){
+        this.RmenuListener.goto();
+    },
     props:{
         nametreeroot:{
             type:Object,
-            default:()=>{return {};},
         },
         RmenuListener:{
             type:Object,
         },
     },
-    components:{
-        NamoRitem
-    }
 }       
 
 

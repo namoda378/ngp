@@ -44,15 +44,15 @@
 
         ShowCase(ofhID="sc2" :resizeW="true")
             div(style="position:absolute;left:0;height:100%;width:200px;")
-                NamoRmenu(:nametreeroot="makeNameTreeRoot()")
+                NamoRmenu(:nametreeroot="{name:'ewga',children:[{name:'ewga',children:[]}]}" :RmenuListener="{goto:()=>{}}")
 
 
 </template>
 
 <script>
-import NamoRmenu from "~/components/NamoRmenu/VcompNamoRmenu"
-import pathsToNameTree from "~/util/pathsToNameTree"
-import generatePaths from "~/util/generatePaths"
+// import NamoRmenu from "~/components/NamoRmenu/VcompNamoRmenu"
+import NamoRmenu from "~/components/NamoAAA/AAA"
+
 
 
 export default {
@@ -63,16 +63,59 @@ export default {
     NamoRmenu
   },
   methods:{
-      makeNameTreeRoot(){
-          const nametreeroot = pathsToNameTree(generatePaths( ["apple","peach","tomato"]));
-          let i = 0;
-          nametreeroot.children.forEach(()=>i++);
-          return nametreeroot;
-      }
+      a(){
+          return {name:"ewga",children:[{name:"ewga",children:[]}]};
+      },
+      pathsToNameTree(paths){
+        const root = {name:"/",children:[],dm:{height:0}};
+        let id_tic = 1;
+
+        for(let path of paths){  
+            let curnode = root;
+            let tokens = path.split("/");
+            
+            tokens = tokens.filter((elm)=>elm.length>0);
+            
+            // tokens = tokens.filter((elm)=>elm.);
+
+            let accpath = "";
+
+            for(let idx in tokens){
+            const depth = parseInt(idx)+1;
+            const tok = tokens[idx];
+            accpath += `/${tok}`;
+            let node = curnode.children.find( node => node.name === tok );
+            if(!node){
+                node = {name:tok,children:[],depth,dm:{height:0},id:id_tic++,accpath};
+                curnode.children.push(node);
+            }
+            curnode = node;        
+            }
+            curnode.path = path;
+        }
+
+        root.children[0].name.split("");
+
+        return {name:"ewga",children:[{name:"ewga",children:[]}]};
+    },
+    generatePaths(){
+        const tokens = ["apple","peach","tomato"];
+        const paths = [];
+        function r(depth,accpath){
+        paths.push(accpath);
+        if(depth < 5){
+            for(let tok of tokens){
+            r(depth+1,accpath+"/"+tok);
+            }
+        }
+        }
+        r(0,"");
+        return paths;
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-    @import "~/components/NamoRmenu/sc1.scss";
+    //@import "~/components/NamoRmenu/sc1.scss";
 </style>
