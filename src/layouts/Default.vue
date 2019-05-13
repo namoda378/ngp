@@ -35,25 +35,22 @@ export default {
     layoutParams:Object,
   },
   data(){
-    return {
-      nametreeroot: null,
-      rmenulistener:null,
-    }
-  },
-  components:{
-    Rmenu,
-  },
-  beforeMount(){
     const {allPage} = this.$static;
     
-    const root = pathsToNameTree(allPage.map((page)=>page.path));
-    this.rmenulistener = {
+    const nametreeroot = pathsToNameTree(allPage.map((page)=>page.path));
+    const rmenulistener = {
       goto:(path)=>{
         this.$router.push(path);
       }
     };
-
-    this.nametreeroot = root;
+    
+    return {
+      nametreeroot,
+      rmenulistener,
+    }
+  },
+  components:{
+    Rmenu,
   },
   methods:{
     log(s){
@@ -64,7 +61,6 @@ export default {
     },
   },
   metaData(){
-    console.log(this.$static);
     return {
 
     }
