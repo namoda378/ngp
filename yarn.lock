@@ -8412,13 +8412,6 @@ tough-cookie@~2.4.3:
     psl "^1.1.24"
     punycode "^1.4.1"
 
-transformer-yamljson@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/transformer-yamljson/-/transformer-yamljson-0.1.1.tgz#1e0cd9845b537cc44c3cb5b87050ab9e6812daf2"
-  integrity sha512-Tg6stFlnMbtyvvjaHMeUgg8zHhNNINvreOfCEJZwb6EJsMUbRI4bM3ouyhYOCpnZhn3N5QRW+RX83GLJ5vDw0w==
-  dependencies:
-    js-yaml "^3.12.1"
-
 trim-lines@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/trim-lines/-/trim-lines-1.1.1.tgz#da738ff58fa74817588455e30b11b85289f2a396"
