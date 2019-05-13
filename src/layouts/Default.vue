@@ -34,7 +34,7 @@ export default {
   props:{
     layoutParams:Object,
   },
-  beforeMount(){
+  created(){
     const {allPage} = this.$static;
     
     this.nametreeroot = pathsToNameTree(allPage.map((page)=>page.path));
