@@ -1,39 +1,29 @@
 <template lang="pug">
   
-   Layout
+  Layout
     
     .head
-      h1 Omok 
-      h3 HTTP와 Corona SDK를 활용한 간단한 MMO 보드 게임 만들기
+      h1 Teemo 
+      h3 TCP 소켓과 Corona SDK를 활용하여 간단한 실시간 멀티플레이어 게임 만들기
 
     hr 
 
     .flex-row
       g-image(src="./img/in_game.gif")
-    
+
+
 </template>
 
 <script>
-
 export default {
-  data(){
-    return{
-      pageState:{},
-    }
-  },
-  metaInfo(){
-    return{
-      title: 'Hello, world!'
-    }
+  metaInfo: {
+    title: 'Hello, world!'
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
-
   .head{
-    font-family: "Noto Sans KR","Roboto";
     width:100%;
     display: flex;
     flex-direction: column;

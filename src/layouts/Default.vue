@@ -32,7 +32,7 @@ import Rmenu from "~/components/NamoRmenu/VcompNamoRmenu"
 export default {
   mixins: [windowResizeListener],
   props:{
-    pageState:Object,
+    layoutParams:Object,
   },
   data(){
     return {

@@ -1,11 +1,10 @@
-Hello World:
+~Hello World:
   - Item 1
 	
 	- Item 2
   - 0.5  # sequences can contain disparate types.
 	- Item 4
 	
-
 	- AKEY :
 		- abc 
 		- def

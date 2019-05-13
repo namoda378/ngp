@@ -6,6 +6,7 @@ import RecursiveContent from '~/components/RecursiveContent.vue'
 import ShowCase from '~/components/ShowCase.vue'
 import CenteredText from '~/components/CenteredText.vue'
 import DocText from '~/components/DocText.vue'
+import NoContent from '~/components/NoContent.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -22,9 +23,10 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('ShowCase', ShowCase);
   Vue.component('Ctext', CenteredText);
   Vue.component('Dtext', DocText);
+  Vue.component('NoContent', NoContent);
 
 
-  ["Roboto","ZCOOL+KuaiLe","Roboto+Mono"].forEach(font=>{
+  ["Roboto","ZCOOL+KuaiLe","Roboto+Mono","Noto+Sans+KR"].forEach(font=>{
     const rel = "stylesheet";
     const href = `https://fonts.googleapis.com/css?family=${font}`;
     head.link.push({rel,href});
