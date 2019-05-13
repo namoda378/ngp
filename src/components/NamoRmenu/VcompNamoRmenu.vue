@@ -1,6 +1,6 @@
 <template lang="pug">
     
-    .vert
+    .vert(v-if="nametreeroot")
         NamoRitem(v-for="(v,k) in nametreeroot.children" :nametree="v" :RmenuListener="RmenuListener" :key="k")
 
 </template>
@@ -15,7 +15,7 @@ function newRmenuListener(){
 export default {
     props:{
         nametreeroot:{
-            type:Object
+            type:Object,
         },
         RmenuListener:{
             type:Object,

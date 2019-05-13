@@ -44,7 +44,7 @@
 
         ShowCase(ofhID="sc2" :resizeW="true")
             div(style="position:absolute;left:0;height:100%;width:200px;")
-                NamoRmenu(:nametreeroot="makeNameTreeRoot()" :asComp="true")
+                NamoRmenu(:nametreeroot="makeNameTreeRoot()")
 
 
 </template>
@@ -64,7 +64,9 @@ export default {
   },
   methods:{
       makeNameTreeRoot(){
-          const nametreeroot = pathsToNameTree(generatePaths());
+          const nametreeroot = pathsToNameTree(generatePaths( ["apple","peach","tomato"]));
+          let i = 0;
+          nametreeroot.children.forEach(()=>i++);
           return nametreeroot;
       }
   }
