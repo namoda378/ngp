@@ -14,14 +14,6 @@ module.exports = {
       plugins: [
         // ...global plugins
       ]
-    },
-    yamljson: {
-      externalLinksTarget: '_blank',
-      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
-      anchorClassName: 'icon icon-link',
-      plugins: [
-        // ...global plugins
-      ]
     }
   },
   plugins: [
@@ -39,19 +31,6 @@ module.exports = {
           path: 'markdowns/**/*.md',
           typeName: 'Markdown',
           remark: {
-            plugins: [
-              // ...local plugins
-            ]
-          }
-        }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: 
-        {
-          path: 'yamls/**/*.yaml',
-          typeName: 'Yaml',
-          yamljson: {
             plugins: [
               // ...local plugins
             ]
