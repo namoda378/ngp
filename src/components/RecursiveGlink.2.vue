@@ -76,7 +76,7 @@ export default {
             let tconHeight = this.$refs.tcon.clientHeight;
             let rconHeight = conclusiveActive ? children.reduce((prev,elm)=>prev += elm.dm.height,0) : 0;
             
-            this.styleData.sidebarWidth = conclusiveActive ? 20 : 0;
+            this.styleData.sidebarWidth = conclusiveActive ? 30 : 0;
             this.styleData.sidebarBRradius = lastChild && lastChild.children.length && lastChild.dm.conclusiveActive ? 0 : 20;    
             this.styleData.rconHeight = rconHeight + "px";
             

@@ -26,8 +26,10 @@ query {
 
 <script>
 import pathsToNameTree from "~/util/pathsToNameTree"
+import { windowResizeListener } from "~/mixins"
 
 export default {
+  mixins: [windowResizeListener],
   data(){
     return {
       nametree: null,
@@ -43,7 +45,10 @@ export default {
   methods:{
     log(s){
       console.log(s);
-    }
+    },
+    onWindowResize(){
+      
+    },
   },
   metaData(){
     console.log(this.$static);
@@ -73,6 +78,7 @@ body {
     align-content: flex-start;
     width:100vw;
     height:100vh;
+    pointer-events: none;
 
     header{
     font-family:'ZCOOL KuaiLe';
@@ -84,7 +90,7 @@ body {
     justify-content: left;
     align-items: center;
     padding-left:30px;
-
+    pointer-events: auto;
       .navlink{
         color:#fff;
         display: block;
@@ -94,23 +100,29 @@ body {
     }
 
     .nav{ 
+      pointer-events: auto;
       font-family: "Roboto Mono";
-      width:$floater-padding-left;
-      flex-grow: 1;
       background:hsla(100,87%,15%,1);
       overflow-y: auto;
       overflow-x: visible;
-      .navlink{
-        display: block;
-        color:#336;
-        text-decoration: none;
-        padding:15px;
+      
+      
+      width:$floater-padding-left;
+      flex-grow: 1;
+
+      @media screen and (max-width: 720px) {
+        width: 100%;
+        flex-grow: 0;
       }
     }
   }  
   
   .non-floater{
     padding: 70px 0 0 $floater-padding-left;
+    @media screen and (max-width: 720px) {
+        padding: 200px 0 0 0;
+    }
+
     .content{
       padding : 20px;
     }
