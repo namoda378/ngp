@@ -1,9 +1,9 @@
   <template lang="pug">
     
-    div
+    Layout
       
-      faw(icon="home")
-      <g-image alt="Example image" src="~/favicon.png" width="135" />
+        faw(icon="home")
+        g-image(alt="Example image" src="~/favicon.png" width="135")
     
 </template>
 

@@ -1,12 +1,10 @@
 <template lang="pug">
 
-    div
-        
-        Layout
+    Layout
 
-            h1 {{ key }}
+        h1 {{ key }}
 
-            Rcomp(v-for="(content,idx) in contents" :key="idx" :data="content")
+        Rcomp(v-for="(content,idx) in contents" :key="idx" :data="content")
 
 
 </template>

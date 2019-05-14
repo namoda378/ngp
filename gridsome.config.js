@@ -15,7 +15,7 @@ module.exports = {
         // ...global plugins
       ]
     },
-    yaml: {
+    yamljson: {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
@@ -51,7 +51,7 @@ module.exports = {
         {
           path: 'yamls/**/*.yaml',
           typeName: 'Yaml',
-          yaml: {
+          yamljson: {
             plugins: [
               // ...local plugins
             ]

@@ -7,11 +7,7 @@
         g-link.navlink(to="/") Namo
       
       nav.nav
-        g-link.navlink(to="/") Home
-        g-link.navlink(to="/art" @mouseover="") Art
-        g-link.navlink(to="/learn-and-tuts") Learn &amp Tuts
-        g-link.navlink(to="/projects") Projects
-        g-link.navlink(to="/about") About
+        Rlink.d1(v-for="(v,k) in nametree" :nametree="v" :key="k")
 
     .non-floater
       .content
@@ -22,17 +18,51 @@
 
 <static-query>
 query {
-  metaData {
-    siteName
-  }
+    allPage{
+      path
+    }
 }
 </static-query>
+
+<script>
+import pathsToNameTree from "~/util/pathsToNameTree"
+
+export default {
+  data(){
+    return {
+      nametree: null,
+    }
+  },
+  beforeMount(){
+    const {allPage} = this.$static;
+    
+
+    const root = pathsToNameTree(allPage.map((page)=>page.path));
+    this.nametree = root.children;
+  },
+  methods:{
+    log(s){
+      console.log(s);
+    }
+  },
+  metaData(){
+    console.log(this.$static);
+    return {
+
+    }
+  }
+}
+</script>
+
+
 <style lang="scss">
 
+$floater-padding-left: 300px;
+
 body {
-  font-family: Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: Roboto,'Roboto Mono','ZCOOL KuaiLe',Arial;
   margin:0;
-  overflow: auto;
+  background:#fcffe9;
 
   .floater{
     background:none;
@@ -45,9 +75,10 @@ body {
     height:100vh;
 
     header{
+    font-family:'ZCOOL KuaiLe';
     height: 70px;
     top:0; left: 0;right: 0;
-    background : #458823;
+    background : #132;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -63,10 +94,12 @@ body {
     }
 
     .nav{ 
-      width:130px;
+      font-family: "Roboto Mono";
+      width:$floater-padding-left;
       flex-grow: 1;
-      background:#abcdba;
-      overflow: auto;
+      background:hsla(100,87%,15%,1);
+      overflow-y: auto;
+      overflow-x: visible;
       .navlink{
         display: block;
         color:#336;
@@ -77,7 +110,7 @@ body {
   }  
   
   .non-floater{
-    padding: 70px 0 0 130px;
+    padding: 70px 0 0 $floater-padding-left;
     .content{
       padding : 20px;
     }
