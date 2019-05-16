@@ -1,35 +1,7 @@
 <template lang="pug">
     
     .comproot(ref="comproot")
-        .scene 
-            Ctext
-                h1 Hello World !!
-                h3 greetings from Namo.
-        .scene.below 
-           
-            .flex-v
-
-                h1 I Made a Scroll Snapping Carousel
-            
-                .under-line
-
-        
-        .scene.below
-            
-            .flex-v
-            
-                h1 It uses an Overlay Div 
-                h3 maybe not the best way to do this. 
-        
-        .scene.below 
-            Ctext
-                h1 And It Works !!
-                p but it's useful and works like a charm
-        
-        .scene.below 
-            Ctext
-                h1 What's Next 
-                p what will I make next ?
+        slot
         
 
 </template>
@@ -38,10 +10,23 @@ export default {
     props:{
         focused_bid:Number,
     },
+    mounted(){
+        const scenes = Array.from(this.$refs.comproot.children).forEach((elm,idx)=>{
+            
+            elm.classList.add("frame")
+            
+            if( idx+1 < this.focused_bid ) {
+                elm.classList.add("above");
+            }else if( idx+1 > this.focused_bid ) {
+                elm.classList.add("below");
+            }
+            
+            })
+    },
     watch:{
         focused_bid(to){
             console.log(to);
-            const scenes = Array.from(this.$refs.comproot.querySelectorAll(".scene"));
+            const scenes = Array.from(this.$refs.comproot.querySelectorAll(".frame"));
             for(let k in scenes){
                 const scene = scenes[k];
                 const bid = parseInt(k)+1;
@@ -65,7 +50,7 @@ export default {
     .comproot{
         overflow: hidden;
 
-        .scene {
+        .frame {
             position: absolute;
             left:0;
             top:0;

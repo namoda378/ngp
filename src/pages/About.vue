@@ -1,47 +1,57 @@
 <template lang="pug">
   
-  Layout
-    Ctext
-      h1()
-        span(style="font-size:0.5em;").
-          About.&nbsp 
-        span(style="font-family:'ZCOOL KuaiLe';").
-          Namo
-      
-      .bl
+  FtypLayout
+    SnapScroller
+    
+      div
+        .vfs-con
 
-      g-image(alt="Example image" src="~/favicon.png" width="135")
+          h1
+            span(style="font-size:0.5em;").
+              About.&nbsp 
+            span(style="font-family:'ZCOOL KuaiLe';").
+              Namo
+          
 
-      .bl
+          g-image(alt="Example image" src="~/favicon.png" width="85")
 
-      .p4 I've been a developer since 2014. 
-      .p4 At the start I wanted to make awesome games. 
-      .p4 Now I'd like to make super useful webservices as well.
-
-      .bl2
-
-      h2
-       | Techs that I &nbsp
-       faw.pink(icon="heart")
-
-      
-      .bl2
+          ul
+            li I've been a developer since 2014. 
+            li At the start I wanted to make awesome games. 
+            li Now I'd like to make super useful webservices as well.
 
 
-      .c-con
-        .item
-          g-image(src="~/assets/tech-logos/git-icon.png" width="135")
-        .item
-          g-image(src="~/assets/tech-logos/vue-icon.png" width="135")
-        .item
-          g-image(src="~/assets/tech-logos/webpack-icon.png" width="135")
+      div 
+        h1 Casual Games
 
-      .bl4
-
-      h2 Contact Me
 
         
+      
+      div 
+        .vfs-con
+          h2 Web/Browser Applications
+          
+          .hc-div
+            g-image(alt="Example image" src="~/assets/tech-logos/netlify.png" width="115")
+            g-image(alt="Example image" src="~/assets/tech-logos/nodejs.png" width="115")
+            g-image(alt="Example image" src="~/assets/tech-logos/vue-icon.png" width="85")
+            g-image(alt="Example image" src="~/assets/tech-logos/firebase.png" width="85")
 
+          ul
+              li I've been a developer since 2014. 
+              li At the start I wanted to make awesome games. 
+              li Now I'd like to make super useful webservices as well.
+
+
+
+      div 
+        h1 Developer Tools 
+
+      
+      div 
+        h1 Overview
+
+      
 
 
 
@@ -56,22 +66,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .item{
+
+  .vfs-con{
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    position: relative;
-    &:after {
-      position: absolute;
-      width: 74%;
-      height: 22%;
-      border-radius: 50%;
-      z-index: -1;
-      bottom: -20%;
-      content: "";
-      box-shadow: 0 50px 24px rgba(0,0,0,0.24);
+
+    h1{
+      font-size: 50px;
     }
-}
+    h2{
+      font-size:40px;
+    }
+
+    ul{
+      list-style: none;
+      text-align: center;
+      li{
+        margin:20px;
+      }
+    }
+
+    .hc-div{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .g-image{
+        margin:20px;
+      }
+    }
+
+  }
+  
   
 </style>
 

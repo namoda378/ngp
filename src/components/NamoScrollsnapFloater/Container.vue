@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Carousel from "./Carousel"
+import Carousel from "./Carousel_sample"
 
 export default {
     data(){

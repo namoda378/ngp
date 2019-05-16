@@ -131,6 +131,9 @@ body {
 
     .content{
       padding : 20px;
+      .fit-nfc{
+        
+      }
     }
   }
 
