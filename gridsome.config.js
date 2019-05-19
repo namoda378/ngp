@@ -12,22 +12,14 @@ module.exports = {
   plugins: [
     {
       use: 'gridsome-plugin-pug',
-      options: {
-          // pug: { /* Options for `pug-plain-loader` */ },
-          // pugLoader: { /* Options for `pug-loader` */ }
-      }
     },
     {
       use: '@gridsome/source-filesystem',
       options: 
         {
-          path: 'yamls/**/*.yaml',
-          typeName: 'Yaml',
-          yamljson: {
-            plugins: [
-              // ...local plugins
-            ]
-          }
+          path: 'yamls/luts/**/*.yaml',
+          typeName: 'Lut',
+          yamljson: {},
         }
     }
   ],

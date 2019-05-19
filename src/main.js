@@ -8,6 +8,7 @@ import RecursiveContent from '~/components/RecursiveContent.vue'
 import ShowCase from '~/components/ShowCase.vue'
 import CenteredText from '~/components/CenteredText.vue'
 import DocText from '~/components/DocText.vue'
+import IconSpan from '~/components/IconSpan.vue'
 import NoContent from '~/components/NoContent.vue'
 import SnapScroller from '~/components/NamoScrollsnapFloater/Vcomp.vue'
 
@@ -29,6 +30,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('ShowCase', ShowCase);
   Vue.component('Ctext', CenteredText);
   Vue.component('Dtext', DocText);
+  Vue.component('fai', IconSpan);
   Vue.component('NoContent', NoContent);
   Vue.component('SnapScroller', SnapScroller);
 

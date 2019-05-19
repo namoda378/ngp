@@ -101,6 +101,7 @@ body {
 
     .content{
       padding : 0;
+      position: relative;
     }
 
     .nav{ 
