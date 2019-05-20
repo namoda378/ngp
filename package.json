@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "gridsome develop",
+    "develop": "gridsome develop --host 121.152.193.63",
     "explore": "gridsome explore"
   },
   "dependencies": {

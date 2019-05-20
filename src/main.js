@@ -37,11 +37,15 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('SnapScroller', SnapScroller);
   Vue.component('RmenuVr', RmenuVr);
   Vue.component('RmenuHr', RmenuHr);
-
-
+  
   ["Roboto","ZCOOL+KuaiLe","Roboto+Mono","Noto+Sans+KR"].forEach(font=>{
     const rel = "stylesheet";
     const href = `https://fonts.googleapis.com/css?family=${font}`;
     head.link.push({rel,href});
   });
+  
+  head.meta.push({
+    name:"viewport",
+    content:"width=device-width, user-scalable=no",
+  })
 }

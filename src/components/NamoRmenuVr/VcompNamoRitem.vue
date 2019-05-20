@@ -41,8 +41,10 @@ export default {
     },
     mounted(){
         setTimeout(()=>{
-            this.$refs.sidebar.style.transition="all 0.5s";
-            this.$refs.rcon.style.transition="all 0.5s";
+            if(this.nametree.children){
+                this.$refs.sidebar.style.transition="all 0.5s";
+                this.$refs.rcon.style.transition="all 0.5s";
+            }
         },0);
     },
     data(){
