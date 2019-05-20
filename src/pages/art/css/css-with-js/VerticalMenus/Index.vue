@@ -44,13 +44,12 @@
 
         ShowCase(ofhID="sc2" :resizeW="true")
             div(style="position:absolute;left:0;height:100%;width:200px;")
-                NamoRmenu(:nametreeroot="makeNameTreeRoot()")
+                NamoRmenuVr(:nametreeroot="makeNameTreeRoot()")
 
 
 </template>
 
 <script>
-import NamoRmenu from "~/components/NamoRmenu/VcompNamoRmenu"
 import pathsToNameTree from "~/util/pathsToNameTree"
 import generatePaths from "~/util/generatePaths"
 
@@ -58,9 +57,6 @@ import generatePaths from "~/util/generatePaths"
 export default {
   metaInfo: {
     title: 'Namo'
-  },
-  components:{
-    NamoRmenu
   },
   methods:{
       makeNameTreeRoot(){
@@ -72,5 +68,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "~/components/NamoRmenu/sc1.scss";
+    @import "~/components/NamoRmenuVr/sc1.scss";
 </style>

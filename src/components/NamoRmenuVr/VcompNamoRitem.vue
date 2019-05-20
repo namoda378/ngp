@@ -6,7 +6,7 @@
             @mouseleave="setES((es)=>es.hover.hi=false);"
             :style="`padding:${styleData.tconPad}px;`")
             
-            .hi(@click="RmenuListener.goto(nametree.path)"
+            .hi(@click="nametree.path&&RmenuListener.goto(nametree.path)"
                 :style="`color:${styleData.hiColor}; height:${styleData.hiLH}px;  line-height:${styleData.hiLH}px; font-size:${styleData.hiFS}px;`").
             
                 {{ nametree.name }}
@@ -176,7 +176,4 @@ export default {
     .height-keeper{
         height: auto;
     }
-
-
-    
 </style>

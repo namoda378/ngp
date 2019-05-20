@@ -14,6 +14,7 @@ export default {
 
 <style lang="scss">
     .ctext{
+        position: relative;
         display: flex;
         margin-bottom: 30px;
         flex-direction: column;

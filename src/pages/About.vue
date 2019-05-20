@@ -1,6 +1,6 @@
 <template lang="pug">
   
-  FtypLayout
+  Layout
     div(ref="nondisplay" style="display:none;")  
 
     .btn(@click="toggleLang") {{ langs[lang_selected] }}
