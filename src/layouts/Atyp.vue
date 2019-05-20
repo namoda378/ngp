@@ -135,6 +135,7 @@ body {
       position: relative;
       padding : 0px;
       overflow: auto;
+      -webkit-overflow-scrolling: touch;
 
       grid-row: 2;
       grid-column: span 1;
