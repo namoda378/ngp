@@ -18,6 +18,9 @@
 export default {
   metaInfo(){
     console.log(this);
+
+
+
     return{
       title: 'Hello, world!'
     }

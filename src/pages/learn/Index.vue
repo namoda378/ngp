@@ -33,8 +33,6 @@ export default {
   },
   metaInfo(){
     this.$page.luts.edges.forEach(lut=>{
-      console.log(lut);
-      console.log(lut.node.json);
       lut.obj = JSON.parse(lut.node.json);
     });
 
@@ -45,7 +43,7 @@ export default {
     }
   },
   created(){
-    console.log(this.$page);
+    // console.log(this.$page);
   }
 }
 </script>

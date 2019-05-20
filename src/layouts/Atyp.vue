@@ -6,7 +6,7 @@
       g-link.navlink(to="/") Namo
       faw.hambug(v-show="whichHrVr==1" :icon="showHr?'minus-square':'bars'" @click="showHr=!showHr")
     
-    nav.nav(v-if="nametreeroot")
+    nav.nav(v-if="nametreeroot" )
       RmenuVr(v-if="whichHrVr==0" :nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
       RmenuHr(v-else-if="whichHrVr==1 && showHr" :nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
 
@@ -42,15 +42,22 @@ export default {
         this.$router.push(path);
       }
     };
-
+  },
+  mounted(){
     this.onWindowResize();
   },
   data(){
     return {
+      blur_consumable:false,
       whichHrVr:0,
       showHr:false,
       nametreeroot:null,
       rmenulistener:null,
+    }
+  },
+  watch:{
+    showHr(to){
+      console.log(to);
     }
   },
   methods:{
@@ -126,7 +133,8 @@ body {
 
     .content{
       position: relative;
-      padding : 20px;
+      padding : 0px;
+      overflow: auto;
 
       grid-row: 2;
       grid-column: span 1;

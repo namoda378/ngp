@@ -1,8 +1,7 @@
 <template lang="pug">
     
-    .vert
-        RmenuRow(v-show="inViewMode" v-for='(nodePair,idx) in viewmodeNodePairs' :key="100+idx" :nodePair="nodePair" :RmenuListener="RmenuListener" @view-hier="onViewHier")
-        RmenuRow(v-show="!inViewMode" v-for='(nodePair,idx) in directNodePairs' :key="idx" :nodePair="nodePair" :RmenuListener="RmenuListener" @view-hier="onViewHier")
+    .vert(ref="elm" tabindex="-1" @blur="reset")
+        RmenuRow(v-for='(node,idx) in nodeList' :key="idx" v-bind="{node,idx,last_idx:nodeList.length-1,nodeList}" @node-click="onNodeClick")
 
 </template>
 <script>
@@ -12,9 +11,8 @@ export default {
     name:"NamoRmenuHr",
     data(){
         return {
-            directNodePairs:this.pathToNodepairs(this.$route.fullPath),
-            viewmodeNodePairs:[],
-            inViewMode:false,
+            nodeList:this.pathToNodeList(this.$route.fullPath),
+            nodeClicked:null,
         }
     },
     props:{
@@ -30,23 +28,37 @@ export default {
       RmenuRow
     },
     methods:{
-        onViewHier(node){
-            this.inViewMode = true;
-            console.log(node.children[0].accpath);
-            this.viewmodeNodePairs = this.pathToNodepairs(node.children[0].accpath);
-            console.log(this.viewmodeNodePairs);
+        reset(){
+            this.nodeClicked = null;
+            this.nodeList = this.pathToNodeList(this.$route.fullPath);
         },
-        pathToNodepairs(path){              
+        onNodeClick(node){
+            if(node.path && (node === this.nodeClicked || node.children.length === 0 )){
+                // goto 
+
+                this.RmenuListener.goto(node.path);
+            
+            }else{
+                // peak
+                this.$refs.elm.focus();
+                this.nodeClicked = node;
+                if(node.children.length){
+                    this.nodeList = this.pathToNodeList(node.accpath);
+                }
+            }
+        },
+        pathToNodeList(path){
             const namesInPath = path.split("/").filter((name)=>name.length>0);
             
             let curNode = this.nametreeroot;
-            return namesInPath.map((elm,idx)=>{
-                const parent = curNode;
-                const I = curNode.children.find((child)=>child.name===elm);
-                curNode = I;
-                return {parent,I};
-            });
-        },
+            const result = namesInPath.map((elm,idx)=>{
+                curNode = curNode.children.find((child)=>child.name===elm);
+                return curNode;
+            })
+            
+            result.splice(0,0,this.nametreeroot);
+            return result;
+        }
     }
 }       
 
