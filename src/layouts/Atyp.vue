@@ -1,18 +1,22 @@
 <template lang="pug">
 
   .template-root  
-    
-    header.header
-      g-link.navlink(to="/") Namo
-      faw.hambug(v-show="whichHrVr==1" :icon="showHr?'minus-square':'bars'" @click="showHr=!showHr")
-    
-    nav.nav(v-if="nametreeroot" )
-      RmenuVr(v-if="whichHrVr==0" :nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
-      RmenuHr(v-else-if="whichHrVr==1 && showHr" :nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
+    .grid-tmpl.floater
+      header.header
+        g-link.navlink(to="/") Namo
+        faw.hambug(v-show="whichHrVr==1" :icon="showHr?'minus-square':'bars'" @click="showHr=!showHr")
+      nav.nav(v-if="nametreeroot")
+        RmenuVr(v-if="whichHrVr==0" :nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
+        RmenuHr(v-else-if="whichHrVr==1 && showHr" :nametreeroot="nametreeroot" :RmenuListener="rmenulistener")
 
-    .content
-      slot
 
+    .grid-tmpl.non-floater
+      .content
+        slot
+
+    
+    
+    
 </template>
 
 <static-query>
@@ -85,23 +89,39 @@ body {
   background:#fcffe9;
 
   .template-root{
-    display: grid; 
-    width:100vw;
-    height:100vh;
-    
-    grid-template-rows: 70px auto;
-    grid-template-columns: 300px auto;
-    @media screen and (max-width: 1200px) {
-      grid-template-rows: 70px max-content auto;
-      grid-template-columns: 100%;
+    position: relative;
+    .grid-tmpl{
+      display: grid; 
+      grid-template-rows: 70px auto;
+      grid-template-columns: 300px auto;
+      @media screen and (max-width: 1200px) {
+        grid-template-rows: 70px max-content auto;
+        grid-template-columns: 100%;
+      }
     }
 
-    .header{
+    .floater{
       z-index: 200;
+      pointer-events: none;
+      position: fixed;
+      width:100vw;
+      height:100vh;
+      > *{
+        pointer-events: auto;
+      }
+    }
+
+    .non-floater{
+      position: relative;
+      z-index: 0;
+      
+    }
+
+  }
+
+  .header{
       font-family:'ZCOOL KuaiLe';
       background : #132;
-      position:relative;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -122,48 +142,19 @@ body {
         font-size:31px;
       }
 
-      
-      grid-row:1;
-      grid-column: 1/3;
+      grid-column: span 2;
       @media screen and (max-width: 1200px) {
-        grid-row: 1;
-        grid-column: 1,span 1;
+        grid-column: span 1;
       }
+  }
+
+  .content{
+    grid-row: 2;
+    grid-column: 2;
+    @media screen and (max-width: 1200px) {
+      grid-column: 1;
+      grid-row: 3;
     }
-
-    .content{
-      position: relative;
-      padding : 0px;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-
-      grid-row: 2;
-      grid-column: span 1;
-
-      @media screen and (max-width: 1200px) {
-        grid-row: 3;
-        grid-column: 1,span 1;
-      }
-    }
-
-    .nav{ 
-
-      pointer-events: auto;
-      font-family: "Roboto Mono";
-      background:hsla(100,87%,15%,1);
-      // overflow-y: auto;
-      overflow-x: hidden;
-      width:100%;
-
-      grid-row: 2;
-      grid-column: span 1;
-
-      @media screen and (max-width: 1200px) {
-        grid-row: 2/3;
-        grid-column: 1,span 1;
-      }
-    }
-
   }
 
 }

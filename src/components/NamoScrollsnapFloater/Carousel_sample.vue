@@ -71,8 +71,8 @@ export default {
             top:0;
             width:100%;
             height:100%;
-            transform:translate(0,0);
-            transition: transform 1s;
+            transform:translate(0,0,0);
+            transition: transform 1s linear;
             z-index: 100;
 
             display: flex;
@@ -80,12 +80,12 @@ export default {
             align-items: center;
 
             &.above{
-                transform:translate(0,-100%);
+                transform:translate(0,-100%,1px);
                 z-index: 99;
             }
 
             &.below{
-                transform:translate(0,100%);
+                transform:translate(0,100%,1px);
                 z-index: 99;
             }
 
