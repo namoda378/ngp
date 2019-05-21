@@ -2,6 +2,7 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import AtypLayout from '~/layouts/Atyp.vue'
+import FtypLayout from '~/layouts/Ftyp.vue'
 
 import RecursiveContent from '~/components/RecursiveContent.vue'
 import ShowCase from '~/components/ShowCase.vue'
@@ -26,6 +27,7 @@ export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   
   Vue.component('Layout', AtypLayout);
+  Vue.component('Ftyp', FtypLayout);
   
   Vue.component('faw', FontAwesomeIcon);
   Vue.component('fai', IconSpan);

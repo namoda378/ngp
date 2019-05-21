@@ -35,6 +35,7 @@
 </template>
 <script>
 export default {
+    name:"sampleScrollsnapperCarousel",
     props:{
         focused_bid:Number,
     },
@@ -80,12 +81,12 @@ export default {
             align-items: center;
 
             &.above{
-                transform:translate(0,-100%,1px);
+                transform:translate(0,-100%);
                 z-index: 99;
             }
 
             &.below{
-                transform:translate(0,100%,1px);
+                transform:translate(0,100%);
                 z-index: 99;
             }
 

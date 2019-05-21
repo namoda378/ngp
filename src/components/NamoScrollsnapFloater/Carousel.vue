@@ -11,17 +11,17 @@ export default {
         focused_bid:Number,
     },
     mounted(){
-        const scenes = Array.from(this.$refs.comproot.children).forEach((elm,idx)=>{
+        // const scenes = Array.from(this.$refs.comproot.children).forEach((elm,idx)=>{
             
-            elm.classList.add("frame")
+        //     elm.classList.add("frame")
             
-            if( idx+1 < this.focused_bid ) {
-                elm.classList.add("above");
-            }else if( idx+1 > this.focused_bid ) {
-                elm.classList.add("below");
-            }
+        //     if( idx+1 < this.focused_bid ) {
+        //         elm.classList.add("above");
+        //     }else if( idx+1 > this.focused_bid ) {
+        //         elm.classList.add("below");
+        //     }
             
-            })
+        //     })
     },
     watch:{
         focused_bid(to){
@@ -56,21 +56,24 @@ export default {
             top:0;
             width:100%;
             height:100%;
-            transform:translate(0,0);
-            transition: transform 1s;
+            transform:translate3d(0,0,0px);
+            transition: transform 1s, opacity 1s;
             z-index: 100;
 
+            opacity: 1;
             display: flex;
             justify-content: center;
             align-items: center;
 
             &.above{
-                transform:translate(0,-100%);
+                opacity: 0;
+                transform:translate3d(0,-100%,-1px);
                 z-index: 99;
             }
 
             &.below{
-                transform:translate(0,100%);
+                opacity: 0;
+                transform:translate3d(0,100%,-1px);
                 z-index: 99;
             }
 

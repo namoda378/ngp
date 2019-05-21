@@ -1,12 +1,12 @@
 <template lang="pug">
   
-  Layout
+  Ftyp
     div(ref="nondisplay" style="display:none;")  
 
     .btn(@click="toggleLang") {{ langs[lang_selected] }}
 
     SnapScroller
-      div
+      .frame
         .vfs-con
 
           h1
@@ -32,7 +32,7 @@
               span.lang-kor 현재는 독창적이고 유용한 웹서비스 개발에도 관심을 갖고 있습니다. 
               
 
-      div 
+      .frame.below
         .vfs-con
           h2
             | Tools that I &nbsp
@@ -55,7 +55,7 @@
                 span.lang-kor 깃에 대해서는 중급 정도의 활용 능력을 갖고 있으며,<br> 브랜칭과 리베이스, 커밋 순회 등을 자유롭게 활용하여 실험적인 코딩을 하고 소스를 관리합니다.
                    
       
-      div 
+      .frame.below
         .vfs-con
           h2 Web/Browser Applications
           
@@ -79,7 +79,7 @@
               span.lang-eng Currently interested in serverless and microservice architectures that work with graphql.
               span.lang-kor 현재는 서버리스와 마이크로서비스 아키텍처에 관심이 많고, 그래프QL 백엔드와의 연동에도 관심이 많습니다. 
 
-      div 
+      .frame.below
         .vfs-con
           h2 Casual Games
           
@@ -97,7 +97,7 @@
               span.lang-eng For realtime multiplayer backend, I use nodejs with socket.io  
               span.lang-kor 실시간 멀티플레이어 백엔드로는 nodejs 기반의 socket.io를 활용합니다. 
 
-      div 
+      .frame.below
         .vfs-con
           h1 Contact Me
 

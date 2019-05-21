@@ -24,7 +24,7 @@
 
 </template>
 <script>
-import ScrollsnapContainer from "~/components/NamoScrollsnapFloater/Container";
+import ScrollsnapContainer from "~/components/NamoScrollsnapFloater/Showcase/Container";
 import SumGreetingCarousel from "~/components/works/SumGreetingCarousel";
 
 export default {

@@ -34,7 +34,7 @@ export default {
             const div = document.createElement("div");
             div.classList.add("block");
             div.dataset.bid = i+1;
-            div.innerHTML = `<h1>bid : ${div.dataset.bid}</h1>`;
+            div.innerHTML = `<h1>${div.dataset.bid}</h1>`;
             scroller.appendChild(div);
         }
 
@@ -82,7 +82,7 @@ export default {
             overflow: auto;
             
             .block{
-                color:#ccd;
+                color:#ded;
                 padding:20px;
                 font-size:20px;
                 display: block;
