@@ -41,7 +41,7 @@ export default {
     },
     mounted(){
         setTimeout(()=>{
-            if(this.nametree.children){
+            if(this.$refs.rcon){
                 this.$refs.sidebar.style.transition="all 0.5s";
                 this.$refs.rcon.style.transition="all 0.5s";
             }

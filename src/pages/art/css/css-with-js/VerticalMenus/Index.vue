@@ -44,7 +44,7 @@
 
         ShowCase(ofhID="sc2" :resizeW="true")
             div(style="position:absolute;left:0;height:100%;width:200px;")
-                NamoRmenuVr(:nametreeroot="makeNameTreeRoot()")
+                RmenuVr(:nametreeroot="makeNameTreeRoot()" :RmenuListener="{goto:()=>{}}")
 
 
 </template>
