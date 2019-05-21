@@ -175,6 +175,10 @@ export default {
     justify-content: space-evenly;
     align-items: center;
 
+    .g-image.g-image--loading{
+      visibility: collapse;
+    }
+
     h1{
       font-size: 50px;
     }
