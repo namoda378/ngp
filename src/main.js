@@ -19,9 +19,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-import { faHome , faHeart , faBars,faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faHome , faHeart , faBars,faMinusSquare,faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithub, faTwitter,faHome , faHeart,faBars,faMinusSquare);
+library.add(faGithub, faTwitter,faHome , faHeart,faBars,faMinusSquare,faChevronLeft);
+
+import "~/styles/global.css";
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
@@ -40,6 +42,8 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('RmenuVr', RmenuVr);
   Vue.component('RmenuHr', RmenuHr);
   
+  Vue.prototype.$g = {};
+
   ["Roboto","ZCOOL+KuaiLe","Roboto+Mono","Noto+Sans+KR"].forEach(font=>{
     const rel = "stylesheet";
     const href = `https://fonts.googleapis.com/css?family=${font}`;

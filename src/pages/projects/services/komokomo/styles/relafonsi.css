@@ -1,0 +1,42 @@
+.relafonsi {
+  font-size: 4px;
+}
+
+@media (min-width:576px) {
+  .relafonsi {
+    font-size: 5px;
+  }
+}
+
+.relafonsi.indiv {
+  font-size: 4px;
+}
+
+.relafonsi.indiv.xs {
+  font-size: 5px;
+}
+
+@media (min-width:768px) {
+  .relafonsi {
+    font-size: 7px;
+  }
+}
+
+@media (min-width:768px) {
+  .relafonsi {
+    font-size: 7px;
+  }
+}
+
+@media (min-width:992px) {
+  .relafonsi {
+    font-size: 9px;
+  }
+}
+
+@media (min-width:1200px) {
+  .relafonsi {
+    font-size: 11px;
+  }
+}
+

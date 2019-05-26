@@ -43,6 +43,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @import "~/styles/proj-doc.scss";
+
+.g-image{
+  max-height:1px;
+  &.g-image--loaded{
+    max-height: none;
+  }
+}
 </style>

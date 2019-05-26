@@ -1,0 +1,137 @@
+@media (min-width:768px) {
+  .dropdown-menu.show {
+    right: 0;
+    left: auto;
+  }
+}
+
+.dropdown-menu.show {
+  left: 0;
+  right: initial;
+}
+
+#carousel-1 img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  object-fit: cover;
+  left: 0;
+  right: 0;
+}
+
+.carousel {
+  border: ra;
+  position: relative;
+  width: 100em;
+  height: 55em;
+  margin: auto;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-clean {
+  background: none;
+  box-shadow: inset 2px 2px 5px #aaa;
+}
+
+.colih {
+  height: 25em;
+  overflow: hidden;
+  padding: 0;
+}
+
+.boround-2em {
+  padding: 7px 30px;
+  border: none;
+  margin: 0em 0.2em;
+  border-radius: 2em;
+}
+
+.boround-lflat {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.boround-rflat {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.navbar-light .navbar-nav .nav-link.expanded {
+  background: #ded;
+}
+
+.gritem img {
+  width: 60%;
+}
+
+.gritem p {
+  text-align: center;
+  font-size: 1.5em;
+  width: 85%;
+}
+
+.gritem {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.relafonsi.marginal > * {
+  margin: 10em auto;
+}
+
+.shitem {
+  width: 100%;
+  padding-top: 110%;
+  object-fit: contain;
+}
+
+.shitcol {
+  padding: 0;
+}
+
+.shiabs {
+  padding: 3em 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shiabs > img {
+  padding: 0;
+  margin: 1em;
+  width: 30%;
+  object-fit: contain;
+}
+
+.shiabs > h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 2em;
+}
+
+.shiabs > p {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.modal.show {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
