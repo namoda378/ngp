@@ -14,7 +14,7 @@
                     | {{org.name}}
                 button.list-group-item.btn.bg-secondary.text-light(@click="pageState='upload'")
                     | Upload Protected Doc
-            .w-100.mt-5(v-else-if="pageState==='upload'")
+            #upload-form.w-100.mt-5(v-else-if="pageState==='upload'")
                 .form-group
                     label(for="org-name") Organization Name:
                     input#org-name.form-control(type="text")
@@ -26,7 +26,7 @@
                 .form-group
                     label(for="file-to-upload") File to Upload:
                     #file-to-upload.input-group.mb-3
-                        .form-control
+                        .form-control.disablable
                             | {{ fileToUpload?fileToUpload.name:"" }}
                         .input-group-append
                             button.btn.btn-primary.text-light(@click="openFileSelector")
@@ -37,10 +37,13 @@
                     input#namo-pw.form-control(type="text")
 
                 .d-flex.justify-content-end.mt-5
-                    button.btn.btn-primary.btn-lg.mr-3(@click="submitFile()") Submit
+                    button.btn.btn-primary.btn-lg.mr-3(@click="submitFile()")
+                        .spinner-border.text-light(v-if="fileSubmissionState=='in-progress'")
+                        span(v-else-if="fileSubmissionState=='succeed'") success
+                        span(v-else-if="fileSubmissionState=='failure'") failed
+                        span(v-else) Submit
                     button.btn.btn-outline-secondary.btn-lg(@click="gotoPage('index')") Cancel
-
-
+            
         #myModal.modal.fade
             .modal-dialog
                 .modal-content
@@ -154,7 +157,8 @@ export default {
             // setTimeout(()=>{this.passcodeSubmissionState="verification-success";$("#myModal").modal('hide');},2000);
         },
         submitFile(){
-            this.fileSubmissionState = "su";
+            this.disableForm();
+            this.fileSubmissionState = "in-progress";
             
             const uploadProtectedVerification =  firebase.functions().httpsCallable('uploadProtectedVerification');
             uploadProtectedVerification({
@@ -181,9 +185,13 @@ export default {
                     return ref.put(this.fileToUpload);
                 }).then((result)=>{
                     console.log(result);
+                    if(this.fileSubmissionState) this.fileSubmissionState = "success";
+                    this.enableForm();
                 })                
                 .catch((err)=>{
                     console.log(err);
+                    if(this.fileSubmissionState) this.fileSubmissionState = "failure";
+                    this.enableForm();
                 });
 
             // setTimeout(()=>{this.passcodeSubmissionState="verification-success";$("#myModal").modal('hide');},2000);
@@ -202,7 +210,21 @@ export default {
             input.click();
         },
         gotoPage(name){
+            if(name==="index"){
+                this.passcode = "";
+                this.passcodeSubmissionState=null;
+                this.fileToUpload=null;
+                this.fileSubmissionState=null;
+            }
             this.pageState = name;
+        },
+        disableForm(){
+            $("#upload-form input,#upload-form button").prop('disabled',true);
+            $("#upload-form .disablable").addClass('disabled');
+        },
+        enableForm(){
+            $("#upload-form input,#upload-form button").prop('disabled',false);
+            $("#upload-form .disablable").removeClass('disabled');
         },
     }
     
@@ -216,5 +238,9 @@ export default {
     }
     .pos-rel{
         position: relative;
+    }
+
+    .disablable.disabled{
+        background:#e9ecef;
     }
 </style>
