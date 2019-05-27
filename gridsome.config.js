@@ -21,6 +21,15 @@ module.exports = {
           typeName: 'Lut',
           yamljson: {},
         }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: 
+        {
+          path: 'yamls/prots/**/*.yaml',
+          typeName: 'Prot',
+          yamljson: {},
+        }
     }
   ],
 }
