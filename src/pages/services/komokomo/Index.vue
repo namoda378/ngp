@@ -27,28 +27,34 @@
                         i.fa.fa-pencil
                         | &nbsp; Sign Up
         .container.relafonsi.marginal
-        #carousel-1.carousel.slide.margin(data-ride='carousel')
-            .carousel-inner(role='listbox')
-                .carousel-item
-                    img.w-100.d-block(src='./img/jaromir-kavan-177722-unsplash.jpg' alt='Slide Image')
-                .carousel-item.active
-                    img.w-100.d-block(src='./img/karolis-puidokas-1446816-unsplash.jpg' alt='Slide Image')
-                .carousel-item
-                    img.w-100.d-block(src='./img/todd-diemer-110882-unsplash.jpg' alt='Slide Image')
-            div
-                a.carousel-control-prev(href='#carousel-1' role='button' data-slide='prev')
-                    span.carousel-control-prev-icon
-                    span.sr-only Previous
-                a.carousel-control-next(href='#carousel-1' role='button' data-slide='next')
-                    span.carousel-control-next-icon
-                    span.sr-only Next
-            ol.carousel-indicators
-                li(data-target='#carousel-1' data-slide-to='0')
-                li.active(data-target='#carousel-1' data-slide-to='1')
-                li(data-target='#carousel-1' data-slide-to='2')
-        .row
-            .col-6.col-lg-3.colih
-            div
+            #carousel-1.carousel.slide.margin(data-ride='carousel')
+                .carousel-inner(role='listbox')
+                    .carousel-item
+                        img.w-100.d-block(src='./img/jaromir-kavan-177722-unsplash.jpg' alt='Slide Image')
+                    .carousel-item.active
+                        img.w-100.d-block(src='./img/karolis-puidokas-1446816-unsplash.jpg' alt='Slide Image')
+                    .carousel-item
+                        img.w-100.d-block(src='./img/todd-diemer-110882-unsplash.jpg' alt='Slide Image')
+                div
+                    a.carousel-control-prev(href='#carousel-1' role='button' data-slide='prev')
+                        span.carousel-control-prev-icon
+                        span.sr-only Previous
+                    a.carousel-control-next(href='#carousel-1' role='button' data-slide='next')
+                        span.carousel-control-next-icon
+                        span.sr-only Next
+                ol.carousel-indicators
+                    li(data-target='#carousel-1' data-slide-to='0')
+                    li.active(data-target='#carousel-1' data-slide-to='1')
+                    li(data-target='#carousel-1' data-slide-to='2')
+            .row
+                .col-6.col-lg-3.colih
+                div
+        .container.relafonsi.marginal
+            <div class="card">
+                <div class="card-header">Header</div>
+                <div class="card-body">Content</div>
+                <div class="card-footer">Footer</div>
+            </div>
         .footer-clean
             footer
                 .container
@@ -90,27 +96,28 @@
                             a(href='#')
                                 i.icon.ion-social-instagram
                             p.copyright Company Name &copy; 2017
-        #mdl-signin.modal.fade.relafonsi(role='dialog' :class="{show:showLoginModal}" tabindex='-1' style='display: none;/*pointer-events: none;*/background: hsla(100,40%,10%,0.1);')
+        #mdl-signin.modal.fade.relafonsi(role='dialog' :class="{show:showLoginModal}" tabindex='-1' style='/*pointer-events: none;*/background: hsla(100,40%,10%,0.1);')
             .modal-dialog(role='document' style='position: relative;width: 50em;')
-                .modal-content(style='width: 100%;height: 100%;')
-                    .login-clean
-                        form(method='post')
-                            h2.sr-only Login Form
-                            .illustration.primary
-                                h2 KomoKomo    
-                            .form-group
-                                input.form-control(type='email' name='email' placeholder='Email')
-                            .form-group
-                                input.form-control(type='password' name='password' placeholder='Password')
-                            .form-group
-                                button.btn.btn-primary.btn-block(type='submit') Log In
-                            a.forgot(href='#') Forgot your email or password?
-
+                .modal-content
+                    #firebaseui-auth-container
+                    #firebaseui-auth-loader
+                    
                             
                 
 </template>
 
 <script>
+
+import * as firebase from "firebase/app";
+import * as firebaseui from "firebaseui";
+
+// Add the Firebase services that you want to use
+import "firebase/auth";
+import "firebase/firestore";
+
+import * as fb from "./js/fb";
+
+
 const randomInt = (i,j)=>{
     return i + Math.ceil(Math.random()*(j-i));
 }
@@ -148,12 +155,24 @@ export default {
             showLoginModal:false,
         }
     },
-    created(){
-        window.addEventListener('load', (event) => {
-            let scripttag = document.createElement('script');    
-            scripttag.setAttribute('src',"/js/komokomo/main.js");
-            document.head.appendChild(scripttag);
+    mounted(){
+        let firebase_style = document.createElement('link');    
+        firebase_style.setAttribute('rel',"stylesheet");
+        firebase_style.setAttribute('type',"text/css");
+        firebase_style.setAttribute('href',"https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css");
+        document.head.appendChild(firebase_style);
+        fb.init(firebase);
+        fb.init_ui(firebase,firebaseui,"#firebaseui-auth-container","firebaseui-auth-loader");
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                console.log("user is signed in " + JSON.stringify(user));
+            } else {
+                console.log("No user is signed in.");
+            }
         });
+
     },
 }
 </script>
