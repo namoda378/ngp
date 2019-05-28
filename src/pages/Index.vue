@@ -3,7 +3,7 @@
   Ftyp
     div(ref="nondisplay" style="display:none;")  
 
-    .btn(@click="toggleLang") {{ langs[lang_selected] }}
+    .lang-btn(@click="toggleLang") {{ langs[lang_selected] }}
 
     SnapScroller
       .frame
@@ -149,7 +149,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .btn{
+  .lang-btn{
     position: absolute;
     top:25px;
     right:30px;
@@ -174,6 +174,10 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    .g-image.g-image--loading{
+      visibility: collapse;
+    }
 
     h1{
       font-size: 50px;
