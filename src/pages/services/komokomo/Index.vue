@@ -108,13 +108,6 @@
 
 <script>
 
-import * as firebase from "firebase/app";
-import * as firebaseui from "firebaseui";
-
-// Add the Firebase services that you want to use
-import "firebase/auth";
-import "firebase/firestore";
-
 import * as fb from "./js/fb";
 
 
@@ -156,13 +149,15 @@ export default {
         }
     },
     mounted(){
+        const { firebase , $ } = this.$jfb;
+        
         let firebase_style = document.createElement('link');    
         firebase_style.setAttribute('rel',"stylesheet");
         firebase_style.setAttribute('type',"text/css");
         firebase_style.setAttribute('href',"https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css");
         document.head.appendChild(firebase_style);
         fb.init(firebase);
-        fb.init_ui(firebase,firebaseui,"#firebaseui-auth-container","firebaseui-auth-loader");
+        // fb.init_ui(firebase,firebaseui,"#firebaseui-auth-container","firebaseui-auth-loader");
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {

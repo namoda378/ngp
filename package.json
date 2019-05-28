@@ -9,6 +9,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
     "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.21",
     "firebase": "^6.0.4",
     "firebaseui": "^4.0.0",
     "gridsome": "^0.5.0",

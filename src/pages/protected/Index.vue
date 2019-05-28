@@ -39,8 +39,8 @@
                 .d-flex.justify-content-end.mt-5
                     button.btn.btn-primary.btn-lg.mr-3(@click="submitFile()")
                         .spinner-border.text-light(v-if="fileSubmissionState=='in-progress'")
-                        span(v-else-if="fileSubmissionState=='succeed'") success
-                        span(v-else-if="fileSubmissionState=='failure'") failed
+                        span(v-else-if="fileSubmissionState=='success'")
+                            i.fas.fa-check
                         span(v-else) Submit
                     button.btn.btn-outline-secondary.btn-lg(@click="gotoPage('index')") Cancel
             
@@ -89,19 +89,10 @@
 </template>
 
 <script>
-import $ from "jquery";
-import bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { setTimeout } from 'timers';
 
-import * as firebase from "firebase/app";
-import * as firebaseui from "firebaseui";
-// Add the Firebase services that you want to use
-import "firebase/auth";
-import "firebase/firestore";
-import "firebase/storage";
-import "firebase/functions";
 // Initialization Code
 import * as myfb from "./fb";
 import { Promise } from 'q';
@@ -125,6 +116,8 @@ export default {
         };   
     },
     mounted(){
+        const { firebase , $ } = this.$jfb;
+
         myfb.init(firebase);
 
         firebase.functions().useFunctionsEmulator('http://localhost:5000') 
@@ -139,7 +132,9 @@ export default {
             this.focusedOrg = org;
             $("#myModal").modal();
         },
-        submitPasscode(){
+        submitPasscode(){    
+            const { firebase , $ } = this.$jfb;
+
             this.passcodeSubmissionState = "verifying";
             
             const unlockProtected =  firebase.functions().httpsCallable('unlockProtected');
@@ -157,6 +152,7 @@ export default {
             // setTimeout(()=>{this.passcodeSubmissionState="verification-success";$("#myModal").modal('hide');},2000);
         },
         submitFile(){
+            const { firebase  , $ } = this.$jfb;
             this.disableForm();
             this.fileSubmissionState = "in-progress";
             

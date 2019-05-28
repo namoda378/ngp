@@ -25,6 +25,19 @@ library.add(faGithub, faTwitter,faHome , faHeart,faBars,faMinusSquare,faChevronL
 
 import "~/styles/global.css";
 
+import bootstrap from 'bootstrap-vue';
+import jquery from "jquery";
+
+import * as firebase from "firebase/app";
+// import * as firebaseui from "firebaseui";
+// Add the Firebase services that you want to use
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/storage";
+import "firebase/functions";
+
+
+
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   
@@ -43,6 +56,9 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('RmenuHr', RmenuHr);
   
   Vue.prototype.$g = {};
+  Vue.prototype.$jfb = {firebase,$:jquery};
+
+  
 
   ["Roboto","ZCOOL+KuaiLe","Roboto+Mono","Noto+Sans+KR"].forEach(font=>{
     const rel = "stylesheet";
